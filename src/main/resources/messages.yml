@@ -1,0 +1,37 @@
+#占位符
+#{Reason} - 理由
+#{ID} - ID编号
+#{expiryTime} - 封禁截止时间
+#{Player} - 玩家名
+#{Enforcer} - 执行操作者名字
+
+#时间显示格式
+TimeFormat:
+  year: "年"
+  month: "月"
+  day: "日"
+  hour: "时"
+  minute: "分"
+  second: "秒"
+PermBan:
+  default:
+    - "&c你已被本服务器永久封禁！"
+    - "&7原因: {Reason}"
+    - "查询更多信息: &b&nhttps://www.yourweb.net/appeal"
+    - ""
+    - "&7Ban ID: &7{ID}"
+    - "&7分享您的Ban ID可能会影响您的上诉处理！"
+PermBanBroadcast:
+  default: "&3&l[XsPlayerBan] &c玩家 &e{Player} &c已被管理员 &e{Enforcer} &c永久封禁！"
+TempBan:
+  default:
+    - "&c你已被封禁至: &e{expiryTime}！"
+    - "&7原因: {Reason}"
+    - "查询更多信息: &b&nhttps://www.yourweb.net/appeal"
+    - ""
+    - "&7Ban ID: &7{ID}"
+    - "&7分享您的Ban ID可能会影响您的上诉处理！"
+TempBanBroadcast:
+  default: "&3&l[XsPlayerBan] &c玩家 &e{Player} &c已被管理员 &e{Enforcer} &c封禁至 &e{expiryTime}！"
+UnBanBroadcast:
+  default: "&3&l[XsPlayerBan] &a玩家 &e{Player} &a被管理员 &e{Enforcer} &a解除封禁！"

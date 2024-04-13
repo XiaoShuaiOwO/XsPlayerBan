@@ -1,0 +1,19 @@
+#XsPlayerBan
+#version: 1.1.0
+#By: XiaoShuaiOwO
+#Github: https://github.com/XiaoShuaiOwO/XsPlayerBan
+BanIDFormat:
+  #设置Ban事件ID开头，未来更新kick事件后可用于区分事件种类
+  #例如BanID以"#B-"开头，KickID以"#K-"开头
+  #可自行选择，就算不加以区分，读取事件ID后也可以获取到事件种类
+  Start: "#"
+  #ID长度(不包括Start部分)
+  Length: 8
+  #组成ID的字符(下列字符中随机生成)
+  Characters: "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+#用于设置指令中startTime参数格式，不能带空格
+SimpleDateFormat: "yyyy.MM.dd-HH:mm:ss"
+Setting:
+  #使用封禁指令时，是否先检测该玩家是否已被封禁
+  #若不检测将会覆盖当前的封禁信息
+  checkBanned: true

@@ -1,0 +1,36 @@
+name: XsPlayerBan
+version: '${project.version}'
+main: com.xssssss.xsplayerban.Main
+authors: [XiaoShuaiOwO]
+description: 让你的服务器封禁系统更加专业
+
+commands:
+  XsBan:
+    description: 封禁玩家
+    usage: §3§l[XsPlayerBan] §a使用/XsBan查看帮助！
+    aliases: [ban]
+  XsUnBan:
+    description: 解封玩家
+    usage: §3§l[XsPlayerBan] §a使用/XsUnBan查看帮助！
+    aliases: [ unban ]
+  XsPlayerBan:
+    description: XsPlayerBan插件指令
+    usage: §3§l[XsPlayerBan] §a使用/XsPlayerBan查看帮助！
+    aliases: [ xspb ]
+permissions:
+  XsPlayerBan.ban:
+    default: op
+  XsPlayerBan.unban:
+    default: op
+  XsPlayerBan.bypass:
+    default: op
+  XsPlayerBan.help:
+    default: op
+  XsPlayerBan.info:
+    default: op
+  XsPlayerBan.history:
+    default: op
+  XsPlayerBan.last:
+    default: op
+  XsPlayerBan.remove:
+    default: op
