@@ -2,7 +2,7 @@ Minecraft Bukkit 插件 理论全版本 功能强大的玩家封禁系统
 本插件持续更新中，未来会制作成完善的玩家管理系统  
 如有建议/Bug欢迎评论提出  
   
-下载: https://www.minebbs.com/resources/xsplayerban.7898/  
+发布地址(下载): https://www.minebbs.com/resources/xsplayerban.7898/  
   
 指令列表：  
 /XsBan <player> [st:startTime] [t:time] [m:model] [r:reason] [b:true/false] [k:true/false] - 封禁玩家 (可使用简拼/ban代替/XsBan)  
