@@ -25,7 +25,7 @@ import static com.xssssss.xsplayerban.Main.logger;
 import static com.xssssss.xsplayerban.Main.message;
 
 public class Message {
-    public static String getBanMessage(String PlayerName,int expiryTime, String MsgType, String Reason, String BanID, String Enforcer){
+    public static String getBanMessage(String PlayerName,Long expiryTime, String MsgType, String Reason, String BanID, String Enforcer){
         String outMsg;
         //System.out.println("获取到expiryTime的值为："+expiryTime);
         if (expiryTime < 0) {
@@ -57,7 +57,7 @@ public class Message {
         }
 
     }
-    private static String repMsg(String msg, String PlayerName, int expiryTime, String Reason, String ID, String Enforcer){
+    private static String repMsg(String msg, String PlayerName, Long expiryTime, String Reason, String ID, String Enforcer){
         //更换变量,颜色代码
         msg = msg.replaceAll("&","§");
         msg = msg.replaceAll("(?i)\\{Player}",PlayerName);
@@ -150,15 +150,15 @@ public class Message {
         String broMsg;
         String msg = message.getString(Type+"Broadcast."+model);
         if (!(msg == null || msg.isEmpty())) {
-            broMsg = repMsg(msg,playerName,Integer.valueOf(expiryTime),Reason,ID,Enforcer);
+            broMsg = repMsg(msg,playerName,Long.valueOf(expiryTime),Reason,ID,Enforcer);
         }else{
             msg = message.getString(Type+"Broadcast.default");
             if (!(msg == null || msg.isEmpty())){
-                broMsg = repMsg(msg,playerName,Integer.valueOf(expiryTime),Reason,ID,Enforcer);
+                broMsg = repMsg(msg,playerName,Long.valueOf(expiryTime),Reason,ID,Enforcer);
                 logger.warning("[XsPlayerBan] 无法获取到 "+Type+"Broadcast."+model+" ,请检查messages.yml！已更换为使用 "+Type+"Broadcast.default ！");
             }else {
                 msg = getDefaultBroadcastMessage(Type);
-                broMsg = repMsg(msg,playerName,Integer.valueOf(expiryTime),Reason,ID,Enforcer);
+                broMsg = repMsg(msg,playerName,Long.valueOf(expiryTime),Reason,ID,Enforcer);
                 logger.warning("[XsPlayerBan] 无法获取到 "+Type+"Broadcast."+model+" ,并且无法获取到 "+Type+"Broadcast.default"+" ，请检查messages.yml！已更换为使用 "+Type+"Broadcast.default ！");
             }
         }

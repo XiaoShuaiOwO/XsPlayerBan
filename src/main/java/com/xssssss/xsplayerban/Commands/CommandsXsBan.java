@@ -80,10 +80,13 @@ public class CommandsXsBan implements CommandExecutor {
                 uuid = offlinePlayer.getUniqueId();
             }
             if ((!(data.getString("PlayerList."+uuid+".BanExpiry") == null)) && config.getBoolean("Setting.checkBanned")) {
-                int expiryTime = Integer.parseInt(Main.data.getString("PlayerList."+uuid+".BanExpiry"));
+                Long tempBanExpiry = Long.valueOf(Main.data.getString("PlayerList."+uuid+".BanExpiry"));
+                Long tempBanStart = Long.valueOf(Main.data.getString("PlayerList."+uuid+".BanStart"));
                 //System.out.println("data中获取到的expiryTime: "+expiryTime);
                 //System.out.println("System.currentTimeMillis()/1000L: "+System.currentTimeMillis()/1000L);
-                if ((System.currentTimeMillis()/1000L) < expiryTime || expiryTime < 0){
+                Long nowTimeStamp = (System.currentTimeMillis()/1000L);
+
+                if (((nowTimeStamp < tempBanExpiry) && (tempBanStart < nowTimeStamp)) || tempBanExpiry < 0){
                     sender.sendMessage("§3§l[XsPlayerBan] §c该用户正在封禁中...请先取消封禁再执行该操作！");
                     return true;
                 }
@@ -92,7 +95,7 @@ public class CommandsXsBan implements CommandExecutor {
             List<String> flagList = Arrays.asList(args);
             for (String flag : flagList) {
                 time = getFlagStrValue(flag,"t:","time:",time);
-                startTime = Integer.toString(getTimeStampByDate(getFlagStrValue(flag,"st:","startTime:",getDateByTimeStamp(Integer.parseInt(startTime)))));
+                startTime = Long.toString(getTimeStampByDate(getFlagStrValue(flag,"st:","startTime:",getDateByTimeStamp(Long.valueOf(startTime)))));
                 model = getFlagStrValue(flag,"m:","model:",model);
                 reason = getFlagStrValue(flag,"r:","reason:",reason)
                         .replaceAll("/_"," ")
@@ -104,7 +107,7 @@ public class CommandsXsBan implements CommandExecutor {
             if (time.equalsIgnoreCase("perm")) {
                 BanExpiry = "-1";
             }else{
-                BanExpiry = Integer.toString(Integer.parseInt(startTime) + TimeStamp.getByStr(time));
+                BanExpiry = Long.toString(Long.valueOf(startTime) + TimeStamp.getByStr(time));
             }
             //执行封禁操作
             int nowTime = (int)(System.currentTimeMillis()/1000L);

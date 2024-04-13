@@ -50,12 +50,15 @@ public class CommandsXsUnBan implements CommandExecutor {
                 if (!(flag.startsWith("b:") || flag.startsWith("broadcast:"))) {
                     String playerName = flag;
                     UUID uuid = getPlayerUUIDByName(playerName);
-                    int oldBanExpiry = Integer.parseInt(Main.data.getString("PlayerList."+uuid+".BanExpiry"));
-                    if (oldBanExpiry != 0 && (System.currentTimeMillis() / 1000) < oldBanExpiry) {
+                    Long oldBanExpiry = Long.valueOf(Main.data.getString("PlayerList."+uuid+".BanExpiry"));
+                    Long oldBanStart = Long.valueOf(Main.data.getString("PlayerList."+uuid+".BanStart"));
+                    Long nowTimeStamp = (System.currentTimeMillis() / 1000L);
+
+                    if (oldBanExpiry < 0L || oldBanExpiry > nowTimeStamp) {
                         Main.data.set("PlayerList."+uuid+".BanExpiry",0);
                         sender.sendMessage("§3§l[XsPlayerBan] §a已成功解封玩家: §e"+playerName);
                         if (broadcast) {
-                            Bukkit.broadcastMessage(getBroadcastMessage("UnBan",model,playerName,reason,"null",Enforcer,"null"));
+                            Bukkit.broadcastMessage(getBroadcastMessage("UnBan",model,playerName,reason,"null",Enforcer,"0"));
                         }
                     }else {
                         sender.sendMessage("§3§l[XsPlayerBan] §c玩家§e "+playerName+" §c解封失败，该玩家当前未处于封禁状态！");

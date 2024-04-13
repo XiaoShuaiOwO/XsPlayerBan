@@ -53,7 +53,7 @@ public class PlayerBan {
         }
         //是否踢出
         if (kick && player != null) {
-            player.kickPlayer(Message.getBanMessage(playerName,Integer.valueOf(BanExpiry),model,reason,tempID,Enforcer));
+            player.kickPlayer(Message.getBanMessage(playerName,Long.valueOf(BanExpiry),model,reason,tempID,Enforcer));
         }
         return tempID;
     }

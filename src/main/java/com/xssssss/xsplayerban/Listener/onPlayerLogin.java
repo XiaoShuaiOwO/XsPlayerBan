@@ -27,7 +27,7 @@ public class onPlayerLogin implements Listener {
             if (playerList.contains(uuid.toString())) {
                 Main.data.set(path + "Name", PlayerName);
                 Main.saveData();
-                int expiryTime = Integer.valueOf(Main.data.getString(path + "BanExpiry"));
+                Long expiryTime = Long.valueOf(Main.data.getString(path + "BanExpiry"));
                 String MsgType = Main.data.getString(path + "BanTemplate");
                 String Reason = Main.data.getString(path + "Reason");
                 String BanID = Main.data.getString(path + "ID");

@@ -53,13 +53,13 @@ public class EventRecordLoader {
         eventRecord.setID((String) historyData.get("ID"));
         eventRecord.setPlayerName((String) historyData.get("Name"));
         eventRecord.setPlayerUUID((String) historyData.get("UUID"));
-        eventRecord.setBanStart(Long.parseLong((String)historyData.get("BanStart")));
+        eventRecord.setBanStart(Long.valueOf((String)historyData.get("BanStart")));
         eventRecord.setBanDuration((String) historyData.get("BanDuration"));
-        eventRecord.setBanExpiry(Long.parseLong((String)historyData.get("BanExpiry")));
+        eventRecord.setBanExpiry(Long.valueOf((String)historyData.get("BanExpiry")));
         eventRecord.setModel((String) historyData.get("BanTemplate"));
         eventRecord.setReason((String) historyData.get("Reason"));
         eventRecord.setEnforcer((String) historyData.get("Enforcer"));
-        eventRecord.setRecordTime(Long.parseLong(RecordTime));
+        eventRecord.setRecordTime(Long.valueOf(RecordTime));
 
         /*System.out.println("=========================================");
         System.out.println("ID: " + historyData.get("ID"));
