@@ -1,6 +1,6 @@
 Minecraft Bukkit 插件 理论全版本 功能强大的玩家封禁系统  
 本插件持续更新中，未来会制作成完善的玩家管理系统  
-如有建议/Bug欢迎评论提出  
+如有建议/Bug欢迎在[Issues](https://github.com/XiaoShuaiOwO/XsPlayerBan/issues)  提出  
   
 发布地址(下载): https://www.minebbs.com/resources/xsplayerban.7898/  
   
